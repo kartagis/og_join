@@ -1,7 +1,0 @@
-og_join.visit:
-  path: '/node/2'
-  defaults:
-    _form: 'Drupal\og_join\Form\OgJoinForm'
-  requirements:
-    _permission: 'access content'
-    node: \d+
