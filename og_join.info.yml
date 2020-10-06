@@ -1,0 +1,5 @@
+name: OG Join
+description: Simple module which asks if you want to join a group when you visit.
+type: module
+core: 8.x
+core_version_requirement: ^8 || ^9

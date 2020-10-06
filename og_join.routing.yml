@@ -1,0 +1,10 @@
+og_join.visit:
+  path: '/node/{node}'
+  defaults:
+    _form: 'Drupal\og_join\Form\OgJoinForm'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      node:
+        type: entity:node
