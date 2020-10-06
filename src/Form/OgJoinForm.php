@@ -2,7 +2,7 @@
 
 namespace Drupal\og_join\Form;
 
-use Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\node\NodeInterface;
@@ -10,7 +10,7 @@ use Drupal\user\UserInterface;
 use Drupal\og\Og;
 use Drupal\og\ManageMembership;
 
-class OgJoinForm {
+class OgJoinForm extends ConfigFormBase {
 
     /**
      * {@inheritDoc}
@@ -54,6 +54,7 @@ class OgJoinForm {
         $entity = \Drupal\node\Entity\Node::load(end($id));
         if (Og::isMember($entity, $user)) {
             \Drupal::messenger()->addError($this->t('You have already subscribed to %group'), ['%group' => $entity->getTitle()]);
+            return;
         }
     }
 
