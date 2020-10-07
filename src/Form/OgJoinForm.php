@@ -50,7 +50,7 @@ class OgJoinForm extends ConfigFormBase {
      */
     public function validateForm(&$form, $form_state) {
         $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
-        $id = explode('/', $_SERVER['REQUEST_URI']);
+        $id = explode('/', \Drupal::request()->getRequestUri());
         $entity = \Drupal\node\Entity\Node::load(end($id));
         if (Og::isMember($entity, $user)) {
             \Drupal::messenger()->addError($this->t('You have already subscribed to %group'), ['%group' => $entity->getTitle()]);
