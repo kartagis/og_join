@@ -30,7 +30,7 @@ class OgJoinForm extends ConfigFormBase {
      * {@inheritDoc}
      */
     public function buildForm($form, $form_state, NodeInterface $node = NULL) {
-        $id = explode('/', $_SERVER['REQUEST_URI']);
+        $id = explode('/', \Drupal::request()->getRequestUri());
         $entity = \Drupal\node\Entity\Node::load(end($id));
         $title = $entity->getTitle();
         $user = \Drupal::currentUser()->getDisplayName();
